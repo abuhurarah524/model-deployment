@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loan Prepayment Risk Prediction System</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+   
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="http://use.fontawsome.com/releases/v5.0.8/js/all.js"></script>
+
+    
+
+</head>
+
+<body style="background-image: url('background.PNG'); background-size: cover;">
+
+<!-- Main div -->
+<div class="container mt-5 mb-5">
+    <div class="row">
+
+        <!-- Left Card for Project Introduction -->
+        <div class="card col-lg-7 text-  center" style="color: white; background: rgba(0, 0, 0, 0.7);">
+            <h1 class="m-5">
+                <strong>Loan Prepayment Risk Prediction System</strong>
+              </h1>
+              
+              <!-- Salutaion -->
+              <p class="ml-5" style="font-weight: bolder; color: rgb(255, 254, 253); text-align: left">
+                                  Hi !</p>
+              
+              <!-- Instructions -->
+              <ul class="ml-4 mr-4" style="text-align: justify"> 
+                <li>The main aim of this project is to predict the risk for loan prepayment </li>
+              </ul>
+              
+
+
+
+
+
+              <!-- Read Instructions button -->
+              <button class="btn btn-secondary mt-4" style="width: 200px; margin-left: 50px; margin-bottom: 50px" data-toggle="modal" data-target="#instructionmodal">Read Instructions
+              </button>
+              
+              
+ 
+        </div>
+ 
+        <!-- Right Card for System Inputs -->
+        <div class="col-lg-5 text-center" style="background: rgba(247, 223, 227, 0.7)">
+            <div>
+                <h2 class="m-5" style="color: black"><strong>Predict Risk</strong></h2>
+              </div>
+              
+              <div id="inputs-form">
+                <form action="/" method="POST">
+              
+              <!-- DTI  -->
+              <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">DTI</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="DTI" id="DTI" type="text" placeholder="Enter DTI" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+              
+              <!-- MaturityMonth  -->
+              <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">MaturityMonth</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="MaturityMonth" id="MaturityMonth" type="text" placeholder="Enter MaturityMonth" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+
+                <!-- FirstPaymentMonth  -->
+               <div class="form-group row">
+                 <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">FirstPaymentMonth</label>
+                 <div class="col-lg-6 col-xl-5 col-6">
+                      <input name="FirstPaymentMonth" id="FirstPaymentMonth" type="text" placeholder="Enter FirstPaymentMonth" style="background-color: rgb(0, 0, 0, 0.5);
+                      border-width: 3px;
+                      border-color: #f0526c;
+                      color: #f8f9fa;
+                      height: 40px;
+                      font-size: 18px;
+                      " onchange="checkSelection(this)" required>
+                 </div>
+            </div>
+
+            <!-- OCLTV  -->
+            <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">OCLTV</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="OCLTV" id="OCLTV" type="text" placeholder="Enter OCLTV" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+              
+              <!-- OrigInterestRate  -->
+              <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">OrigInterestRate</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="OrigInterestRate" id="OrigInterestRate" type="text" placeholder="Enter OrigInterestRate" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+
+            <!-- LTV  -->
+            <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">LTV</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="LTV" id="LTV" type="text" placeholder="Enter LTV" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+              
+              <!-- MIP  -->
+              <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">MIP</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="MIP" id="MIP" type="text" placeholder="Enter MIP" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+
+
+            <!-- NumBorrowers  -->
+            <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">NumBorrowers</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="NumBorrowers" id="NumBorrowers" type="text" placeholder="Enter NumBorrowers" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+              
+              <!-- OrigUPB  -->
+              <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">OrigUPB</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="OrigUPB" id="OrigUPB" type="text" placeholder="Enter OrigUPB" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+
+            <!-- PostalCode  -->
+            <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">PostalCode</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="PostalCode" id="PostalCode" type="text" placeholder="Enter PostalCode" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+              
+              <!-- CreditScore  -->
+              <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1" style="font-weight: bolder; font-size: large;">CreditScore</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                    <input name="CreditScore" id="CreditScore" type="text" placeholder="Enter CreditScore" style="background-color: rgb(0, 0, 0, 0.5);
+                    border-width: 3px;
+                    border-color: #f0526c;
+                    color: #f8f9fa;
+                    height: 40px;
+                    font-size: 18px;
+                    " onchange="checkSelection(this)" required>
+                </div>
+            </div>
+              
+              <!-- PropertyState Dropdown -->
+              <div class="form-group row">
+                 <label class="col-lg-4 col-4 offset-lg-1 col-form-label"
+                 style="font-weight: bolder; font-size: large">PropertyState</label>
+                 <div class="col-lg-6 col-xl-5 col-6">
+                    <div class="dropdown">
+                       <select class="form-control btn-secondary" name="PropertyState" id="PropertyState" style="background: rgb(0, 0, 0, 0.5);
+              border-width: 3px;border-color: #f0526c;color: white;height: 40px;
+              " onchange="checkSelection(this)" required>
+                          <option selected disabled value="">Select PropertyState</option>
+                          <option value="0">CO</option>
+                          <option value="1">NY</option>
+                          <option value="2">IL</option>
+                          <option value="3">GA</option>
+                          <option value="4">KS</option>
+                          <option value="5">MD</option>
+                          <option value="6">MA</option>
+                          <option value="7">TX</option>
+                          <option value="8">SC</option>
+                          <option value="9">NJ</option>
+                          <option value="10">IN</option>
+                          
+                             </select>
+                          </div>
+                       </div>
+              </div>
+              
+              <!-- LoanPurpose Dropdown -->
+              <div class="form-group row">
+                 <label class="col-lg-4 col-4 offset-lg-1 col-form-label"
+                 style="font-weight: bolder; font-size: large">LoanPurpose</label>
+                 <div class="col-lg-6 col-xl-5 col-6">
+                    <div class="dropdown">
+                       <select class="form-control btn-secondary" name="LoanPurpose" id="LoanPurpose" style="background: rgb(0, 0, 0, 0.5);
+              border-width: 3px;border-color: #f0526c;color: white;height: 40px;
+              " onchange="checkSelection(this)" required>
+                          <option selected disabled value="">Select LoanPurpose</option>
+                          <option value="0">C</option>
+                          <option value="1">N</option>
+                          <option value="2">P</option>                         
+                         
+                       </select>
+                    </div>
+                 </div>
+              </div>
+              <!-- Channel Dropdown -->
+              <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1 col-form-label"
+                style="font-weight: bolder; font-size: large">Channel</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                   <div class="dropdown">
+                      <select class="form-control btn-secondary" name="Channel" id="Channel" style="background: rgb(0, 0, 0, 0.5);
+             border-width: 3px;border-color: #f0526c;color: white;height: 40px;
+             " onchange="checkSelection(this)" required>
+                         <option selected disabled value="">Select Channel</option>
+                         <option value="0">B</option>
+                         <option value="1">C</option>  
+                         <option value="2">R</option>
+                         <option value="3">T</option>  
+                      
+                      </select>
+                   </div>
+                </div>
+             </div>
+
+             <!-- PropertyType Dropdown -->
+             <div class="form-group row">
+                <label class="col-lg-4 col-4 offset-lg-1 col-form-label"
+                style="font-weight: bolder; font-size: large">PropertyType</label>
+                <div class="col-lg-6 col-xl-5 col-6">
+                   <div class="dropdown">
+                      <select class="form-control btn-secondary" name="PropertyType" id="PropertyType" style="background: rgb(0, 0, 0, 0.5);
+             border-width: 3px;border-color: #f0526c;color: white;height: 40px;
+             " onchange="checkSelection(this)" required>
+                         <option selected disabled value="">Select PropertyType</option>
+                         <option value="0">SF</option>
+                         <option value="1">PU</option>
+                         <option value="2">CO</option>
+                         <option value="3">MH</option>
+                         <option value="4">CP</option>
+                         <option value="5">LH</option>
+                         <option value="6">Other</option>
+                     </select>
+                   </div>
+                </div>
+             </div>
+
+
+
+
+
+              
+              <!-- Predict Button -->
+              <div class="form-group row mt-5">
+                 <div class="col-lg-8 offset-lg-2 col-9 offset-1 mb-5">
+                    <button type="submit" class="btn btn-success" id="calculateButton" style="width: 100%">Predict
+                    </button>
+                 </div>
+              </div>
+
+             
+
+
+
+
+              <!-- Instruction Modal -->
+              <div class="modal fade" id="instructionmodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title" style="margin-left: 35%">
+                                <strong>Instructions</strong>
+                            </h4>
+                            
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>                            
+                          </div>
+                         
+                            
+                            
+                              <!-- Instruction Heading -->
+<div class="w-100 text-center" style="background: #009cff; color: white; height: 50px">
+    <h5 style="padding-top: 10px">Input Attributes Details</h5>
+</div>
+
+<!-- Collapsable System Input Attributes in Instruction Modal -->
+<div id="accordion">
+    <div class="card mt-2" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="DTIheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#DTIcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">DTI - DTI</b>
+            </i>
+        </div>
+        <div id="DTIcollapse" class="collapse" aria-labelledby="DTIheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of DTI are integers.
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-1" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="MaturityMonthheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#MaturityMonthcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">MaturityMonth</b>
+            </i>
+        </div>
+        <div id="MaturityMonthcollapse" class="collapse" aria-labelledby="MaturityMonthheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of MaturityMonth are integers like 02 , 03 , 05 ,...,12
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-1" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="FirstPaymentMonthheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#FirstPaymentMonthcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">FirstPaymentMonth</b>
+            </i>
+        </div>
+        <div id="FirstPaymentMonthcollapse" class="collapse" aria-labelledby="FirstPaymentMonthheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of FirstPaymentMonth are integers like 02 , 03 , 05 ,...,12
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mt-1" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="PropertyStatesheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#PropertyStatescollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">PropertyState</b>
+            </i>
+        </div>
+        <div id="PropertyStatescollapse" class="collapse" aria-labelledby="PropertyStatesheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of PropertyState should be in abbreviations like CO , NY & IL etc.
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-1" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="LoanPurposeheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#LoanPurposecollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">LoanPurpose</b>
+            </i>
+        </div>
+        <div id="LoanPurposecollapse" class="collapse" aria-labelledby="LoanPurposeheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of LoanPurpose are : C , N & P
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-1" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="Channelheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#Channelcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">Channel</b>
+            </i>
+        </div>
+        <div id="Channelcollapse" class="collapse" aria-labelledby="Channelheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of Channel are : B , C , R & T
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-2" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="CreditScoreheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#CreditScorecollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">CreditScore </b>
+            </i>
+        </div>
+        <div id="CreditScorecollapse" class="collapse" aria-labelledby="CreditScoreheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of CreditScore are integers :
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mt-2" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="OrigUPBheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#OrigUPBcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">OrigUPB </b>
+            </i>
+        </div>
+        <div id="OrigUPBcollapse" class="collapse" aria-labelledby="OrigUPBheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of OrigUPB are integers
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-2" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="MIPheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#MIPcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">MIP </b>
+            </i>
+        </div>
+        <div id="MIPcollapse" class="collapse" aria-labelledby="MIPheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of MIP are integers
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-2" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="OCLTVheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#OCLTVcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">OCLTV </b>
+            </i>
+        </div>
+        <div id="OCLTVcollapse" class="collapse" aria-labelledby="OCLTVheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of OCLTV are integers
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-2" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="LTVheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#LTVcollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">LTV </b>
+            </i>
+        </div>
+        <div id="LTVcollapse" class="collapse" aria-labelledby="LTVheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of LTV are integers
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-2" style="background: rgb(173, 170, 170)">
+        <div class="card-header" id="OrigInterestRateheading" style="display: inline-flex;height: 40px;align-content: center;cursor: pointer;" data-toggle="collapse" data-target="#OrigInterestRatecollapse" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="fa fa-plus-circle">
+                <b class="ml-3" style="font-family: sans-serif">OrigInterestRate </b>
+            </i>
+        </div>
+        <div id="OrigInterestRatecollapse" class="collapse" aria-labelledby="OrigInterestRateheading"
+            style="background: white" data-parent="#accordion">
+            <div class="card-body">
+                Possible Values of OrigInterestRate are float like 6.5 , 7.0 etc
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="w-100 text-center mt-3" style="background: #009cff; color: white; height: 50px">
+            <h5 style="padding-top: 10px">Steps to Follow</h5>
+        </div>
+        
+        <!-- Steps of Prediction -->
+        <div class="mt-3 ml-3">
+            <span style="font-weight: bolder">Step 1 : </span> Select
+            values of
+            <span style="font-weight: bolder; color: #009cff">DTI, CreditScore, PropertyState, LoanPurpose,Channel,FirstPaymentMonth,MaturityMonth,
+                MIP, OrigUPB , OrigInterestRate , OCLTV , LTV ,NumBorrowers , PostalCode & PropertyType.
+            </span><br />
+            <span style="font-weight: bolder">Step 2 : </span> Click on
+            <span style="font-weight: bolder; color: #009cff">Predict</span>
+            Button<br />
+            <span style="font-weight: bolder">Step 3 : </span> Our Loan Prepayment Risk Prediction System will predict the risk
+           
+        </div>
+
+</div>
+
+
+        
+        
+       
+
+</div>
+
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display of predicted result -->
+<div class="result-box mt-3">
+    <p id="result", ><span style="font-weight: bolder;font-size: 25px ;color: #dd142f">{{prediction_text}}</span></p>
+</div>
+
+                 </form>
+              </div>
+              
+
+        </div>
+ 
+      </div>
+ 
+ 
+
+
+
+</body>
+<script>
+    // Making dropdown border as green when the value of attribute is changed
+    function checkSelection(element) {
+    if (element.value != "") {
+        element.style.borderColor = "green"; //change color to green
+    }
+}
+    // Handle DTI collapse on click
+    $("#DTIheading").click(function () {
+        if ($("#DTIheading").attr("aria-expanded") == "false") {
+            $("#DTIheading i").removeClass("fa-plus-circle");
+            $("#DTIheading i").addClass("fa-minus-circle");
+        }
+        if ($("#DTIheading").attr("aria-expanded") == "true") {
+            $("#DTIheading i").removeClass("fa-minus-circle");
+            $("#DTIheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+    // Handle MaturityMonth collapse on click
+    $("#MaturityMonthheading").click(function () {
+        if ($("#MaturityMonthheading").attr("aria-expanded") == "false") {
+            $("#MaturityMonthheading i").removeClass("fa-plus-circle");
+            $("#MaturityMonthheading i").addClass("fa-minus-circle");
+        }
+        if ($("#MaturityMonthheading").attr("aria-expanded") == "true") {
+            $("#MaturityMonthheading i").removeClass("fa-minus-circle");
+            $("#MaturityMonthheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+    // Handle PropertyStates collapse on click
+    $("#PropertyStatesheading").click(function () {
+        if ($("#PropertyStatesheading").attr("aria-expanded") == "false") {
+            $("#PropertyStatesheading i").removeClass("fa-plus-circle");
+            $("#PropertyStatesheading i").addClass("fa-minus-circle");
+        }
+        if ($("#PropertyStatesheading").attr("aria-expanded") == "true") {
+            $("#PropertyStatesheading i").removeClass("fa-minus-circle");
+            $("#PropertyStatesheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+    // Handle LoanPurpose collapse on click
+    $("#LoanPurposeheading").click(function () {
+        if ($("#LoanPurposeheading").attr("aria-expanded") == "false") {
+            $("#LoanPurposeheading i").removeClass("fa-plus-circle");
+            $("#LoanPurposeheading i").addClass("fa-minus-circle");
+        }
+        if ($("#LoanPurposeheading").attr("aria-expanded") == "true") {
+            $("#LoanPurposeheading i").removeClass("fa-minus-circle");
+            $("#LoanPurposeheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+    // Handle Channel collapse on click
+    $("#Channelheading").click(function () {
+        if ($("#Channelheading").attr("aria-expanded") == "false") {
+            $("#Channelheading i").removeClass("fa-plus-circle");
+            $("#Channelheading i").addClass("fa-minus-circle");
+        }
+        if ($("#Channelheading").attr("aria-expanded") == "true") {
+            $("#Channelheading i").removeClass("fa-minus-circle");
+            $("#Channelheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+    // Handle FirstPaymentMonth collapse on click
+    $("#FirstPaymentMonthheading").click(function () {
+        if ($("#FirstPaymentMonthheading").attr("aria-expanded") == "false") {
+            $("#FirstPaymentMonthheading i").removeClass("fa-plus-circle");
+            $("#FirstPaymentMonthheading i").addClass("fa-minus-circle");
+        }
+        if ($("#FirstPaymentMonthheading").attr("aria-expanded") == "true") {
+            $("#FirstPaymentMonthheading i").removeClass("fa-minus-circle");
+            $("#FirstPaymentMonthheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+    // Handle MIP collapse on click
+    $("#MIPheading").click(function () {
+        if ($("#MIPheading").attr("aria-expanded") == "false") {
+            $("#MIPheading i").removeClass("fa-plus-circle");
+            $("#MIPheading i").addClass("fa-minus-circle");
+        }
+        if ($("#MIPheading").attr("aria-expanded") == "true") {
+            $("#MIPheading i").removeClass("fa-minus-circle");
+            $("#MIPheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+  // Handle OrigUPB collapse on click
+  $("#OrigUPBheading").click(function () {
+        if ($("#OrigUPBheading").attr("aria-expanded") == "false") {
+            $("#OrigUPBheading i").removeClass("fa-plus-circle");
+            $("#OrigUPBheading i").addClass("fa-minus-circle");
+        }
+        if ($("#OrigUPBheading").attr("aria-expanded") == "true") {
+            $("#OrigUPBheading i").removeClass("fa-minus-circle");
+            $("#OrigUPBheading i").addClass("fa-plus-circle");
+        }
+    });
+
+      // Handle OrigInterestRate collapse on click
+  $("#OrigInterestRateheading").click(function () {
+        if ($("#OrigInterestRateheading").attr("aria-expanded") == "false") {
+            $("#OrigInterestRateheading i").removeClass("fa-plus-circle");
+            $("#OrigInterestRateheading i").addClass("fa-minus-circle");
+        }
+        if ($("#OrigInterestRateheading").attr("aria-expanded") == "true") {
+            $("#OrigInterestRateheading i").removeClass("fa-minus-circle");
+            $("#OrigInterestRateheading i").addClass("fa-plus-circle");
+        }
+    });
+    
+     // Handle OCLTV collapse on click
+  $("#OCLTVheading").click(function () {
+        if ($("#OCLTVheading").attr("aria-expanded") == "false") {
+            $("#OCLTVheading i").removeClass("fa-plus-circle");
+            $("#OCLTVheading i").addClass("fa-minus-circle");
+        }
+        if ($("#OCLTVheading").attr("aria-expanded") == "true") {
+            $("#OCLTVheading i").removeClass("fa-minus-circle");
+            $("#OCLTVheading i").addClass("fa-plus-circle");
+        }
+    });
+
+     // Handle LTV collapse on click
+  $("#LTVheading").click(function () {
+        if ($("#LTVheading").attr("aria-expanded") == "false") {
+            $("#LTVheading i").removeClass("fa-plus-circle");
+            $("#LTVheading i").addClass("fa-minus-circle");
+        }
+        if ($("#LTVheading").attr("aria-expanded") == "true") {
+            $("#LTVheading i").removeClass("fa-minus-circle");
+            $("#LTVheading i").addClass("fa-plus-circle");
+        }
+    });
+
+    // Handling of Result modal to be displayed
+    window.onload = function () {
+        if (document.getElementById("result").innerText) {
+            $("#resultmodal").modal("show");
+        }
+    };
+    
+    
+    </script>
+</html>
